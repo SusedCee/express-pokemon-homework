@@ -11,6 +11,8 @@ const app = express();
 // some data 
 const pokemon = require('./models/pokemon') //defined the uppercase pokemon
 
+app.use(express.static('./public'));
+
 // app.get('/pokemon', (req, res) => { //getting url from client and sending back the pokemon array
 // 	res.send(pokemon)
 // 	console.log('hey this works')
