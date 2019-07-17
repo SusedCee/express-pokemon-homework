@@ -9,14 +9,25 @@ const app = express();
 // and methods of creating a server!!!!
 // localhost:3000
 // some data 
-const Pokemon = require('./models/pokemon') //defined the uppercase pokemon
+const pokemon = require('./models/pokemon') //defined the uppercase pokemon
+
+// app.get('/pokemon', (req, res) => { //getting url from client and sending back the pokemon array
+// 	res.send(pokemon)
+// 	console.log('hey this works')
+// })
 
 app.get('/pokemon', (req, res) => { //getting url from client and sending back the pokemon array
-	res.send(Pokemon)
-	console.log('hey this works')
+	res.render("./index.ejs", {pokemon: pokemon})
 })
 
 
+// app.get('/pokemon/:id', (req, res) => {
+//   console.log(req.params, "<--req.params");
+//   console.log('pokemon/:id')
+//   res.render(".//show.ejs", {
+//     mission: marsMissions[req.params.id]
+//   });
+// })
 
 
 
