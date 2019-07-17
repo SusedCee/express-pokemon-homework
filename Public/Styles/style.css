@@ -1,4 +1,4 @@
-body {
+body { 
 	background-image: url("http://i.imgur.com/O7ZWigt.png");
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -19,7 +19,7 @@ ul {
 	margin: 20px;
 }
 
-a:link {
+a:link {      /*https://www.w3schools.com/css/css_link.asp*/
   text-decoration: none;
 }
 
@@ -52,5 +52,12 @@ li {
 	text-decoration: none;
 	font-family: sans-serif;
 	padding: 8px 13px;
+}
 
+.show {
+	display: flex;
+	justify-content: center;
+	text-decoration: none;
+	font-family: sans-serif;
+	padding: 8px 13px;
 }

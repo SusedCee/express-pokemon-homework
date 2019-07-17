@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
     <head>
         <meta charset="utf-8">
@@ -14,12 +14,16 @@
                 <% for(let i = 0; i < pokemon.length; i++){%>
                 <div>
                     <li>
-                        <a href=/pokemon/<%=i%>> <%= pokemon[i].name%> </a>
+                        <a href=/pokemon/<%=i%>> <%= pokemon[i].name%></a>
                     </li>
                 </div>
                 <%}%>
             </ul>
         </div>
+
+        <nav>
+            <a href="/pokemon/new">Add new Pokemon</a>
+        </nav>
 
 
 
