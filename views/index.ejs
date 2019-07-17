@@ -8,12 +8,20 @@
 
     <body>
         <h1>Pokemon Index Page</h1>
+
         <div class="pokemon">
             <ul>
-               <li>
-              </li>
+                <% for(let i = 0; i < pokemon.length; i++){%>
+                <div>
+                    <li>
+                        <a href=/pokemon/<%=i%>> <%= pokemon[i].name%> </a>
+                    </li>
+                </div>
+                <%}%>
             </ul>
         </div>
+
+
 
     </body>
 </html>

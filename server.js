@@ -21,15 +21,13 @@ app.get('/pokemon', (req, res) => { //getting url from client and sending back t
 })
 
 
-// app.get('/pokemon/:id', (req, res) => {
-//   console.log(req.params, "<--req.params");
-//   console.log('pokemon/:id')
-//   res.render(".//show.ejs", {
-//     mission: marsMissions[req.params.id]
-//   });
-// })
-
-
+app.get('/pokemon/:id', (req, res) => {
+  console.log(req.params, "<--req.params");
+  console.log('pokemon/:id')
+  res.render("./show.ejs", {
+    pokemon: pokemon[req.params.id]
+  });
+})
 
 
 
