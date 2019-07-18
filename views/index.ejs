@@ -15,6 +15,9 @@
                 <div>
                     <li>
                         <a href=/pokemon/<%=i%>> <%= pokemon[i].name%></a>
+                        <form action="/pokemon/<%=i%>?_method=DELETE" method="POST">
+                        <button type="submit" value="DELETE">DELETE</button>
+                </form>
                     </li>
                 </div>
                 <%}%>

@@ -77,8 +77,28 @@ app.put('/pokemon/:index', (req, res) => {
 });
 
 
-
+//deleting the pokemon
+app.delete("/pokemon/:index", (req, res) => {
+	pokemon.splice(req.params.index, 1); //deleting the pokemon with splice from the array
+	res.redirect("/pokemon"); //redirect to index route
+});
 
 app.listen(3000, () => {
   console.log('my server is listening for client requests on port 3000')
-});
+}); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
