@@ -6,6 +6,12 @@
         <link rel="stylesheet" href="/css/app.css">
     </head>
     <body>
+        <h1>Edit Pokemon</h1>
+
+        <form method="POST" action="/pokemon/<%=index%>?_method=PUT">
+            Name: <input type="text" name="name" value="<%=pokemon.name%>"/><br/>
+            <input type="submit" name="" value="Submit Changes"/>
+        </form>
 
     </body>
 </html>

@@ -38,10 +38,8 @@ app.post('/pokemon', (req, res) => {
   // contents of the form
   console.log(req.body, "<--- content of the form, before if statement")
   if(req.body.name !== ""){
-    //req.body.name = true; // correct the data to look like what it
-    // should in the model
   } else {
-    req.body.name = 'noname'
+    req.body.name = 'no name'
   }
   console.log(req.body, ' after if statement')
   pokemon.push(req.body);
@@ -53,12 +51,30 @@ app.post('/pokemon', (req, res) => {
 app.get('/pokemon/:id', (req, res) => {
   console.log(req.params, "<--req.params"); 
   console.log('pokemon/:id')
-  res.render("./show.ejs", {
+  res.render("./edit.ejs", {
     pokemon: pokemon[req.params.id]
   });
-})
+});
 
+//edit route
+app.get('/pokemon/:index/edit', (req, res) => {
+	res.render('edit.ejs', {
+		pokemon: pokemon[req.params.index], 
+		index: req.params.index
+	})
+});
 
+//adds the new edits to the list
+app.put('/pokemon/:index', (req, res) => {
+  console.log(req.body, ' in put route')
+  if(req.body.name !== ""){
+  } else {
+    req.body.name = "no name"
+  }
+  console.log(req.body, ' after if statement')
+  pokemon[req.params.index] = req.body;
+  res.redirect('/pokemon')
+});
 
 
 
