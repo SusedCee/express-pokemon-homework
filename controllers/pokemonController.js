@@ -1,21 +1,13 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const methodOverride = require('method-override');
+const express = require('express'); 
 const router = express.Router();
 //const Fruits = require('../models/fruit')
 
 
-const app = express();
 const pokemon = require('../models/pokemon')
-router.use(bodyParser.urlencoded({extended: false}));
-router.use(methodOverride('_method'));
-//router.use(express.static('./public'));
-
-
 
 
 router.get('/', (req, res) => { //getting url from client and sending back the pokemon array
-	res.render("./index.ejs", {pokemon: pokemon})
+	res.render("index.ejs", {pokemon: pokemon})
 })
 
 // client sees a form to enter a new pokemon then a new image shows up
@@ -34,7 +26,7 @@ router.post('/', (req, res) => {
   }
   console.log(req.body, ' after if statement')
   pokemon.push(req.body);
-  res.redirect('/')
+  res.redirect('/pokemon')
 
 });
 
@@ -42,7 +34,7 @@ router.post('/', (req, res) => {
 router.get('/:id', (req, res) => {
   console.log(req.params, "<--req.params"); 
   // console.log('pokemon/:id')
-  res.render("./edit.ejs", {
+  res.render("./show.ejs", {
     pokemon: pokemon[req.params.id]
   });
 });
@@ -64,14 +56,14 @@ router.put('/:index', (req, res) => {
   }
   console.log(req.body, ' after if statement')
   pokemon[req.params.index] = req.body;
-  res.redirect('/')
+  res.redirect('/pokemon')
 });
 
 
 //deleting the pokemon
 router.delete("/:index", (req, res) => {
 	pokemon.splice(req.params.index, 1); //deleting the pokemon with splice from the array
-	res.redirect("/"); //redirect to index route
+	res.redirect("/pokemon"); //redirect to index route
 });
 
 module.exports = router
